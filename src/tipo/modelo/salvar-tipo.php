@@ -9,7 +9,7 @@
     if(empty($requestData['NOME'])){
         //Caso a variavel venha vazia do formulario, iremos retornar um erro
         $dados = array(
-            "Tipo" => 'error', 
+            "tipo" => 'error', 
             "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
         );
     }else {
@@ -21,35 +21,35 @@
         if($operacao == 'insert'){
             //Comandos para o INSERT no banco de dados se ocorerem
             try{
-                $stmt = $pdo->('INSERT INTO TIPO (NOME) VALUES (:a)');
+                $stmt = $pdo->prepare('INSERT INTO TIPO (NOME) VALUES (:a)');
                 $stmt->execute(array(
                     ':a' => utf8_decode($requestData['NOME'])
                 ));
                 $dados = array(
-                    "Tipo" => 'sucess', 
+                    "tipo" => 'success', 
                     "mensagem" => 'Registro salvo com sucesso!' 
                 ); 
             } catch(PDOException $e) {
                 $dados = array(
-                    "Tipo" => 'error', 
+                    "tipo" => 'error', 
                     "mensagem" => 'Não foi passível salvar o registro:'.$e 
                 );
             }
         } else {
             //Se a nossa operação vir vazia, então iremos realizar UPDATE
             try{
-                $stmt = $pdo->('UPDATE TIPO SET NOME = :a WHERE ID = :id');
+                $stmt = $pdo->prepare('UPDATE TIPO SET NOME = :a WHERE ID = :id');
                 $stmt->execute(array(
                     ':id' => $ID,
                     ':a' => utf8_decode($requestData['NOME'])
                 ));
                 $dados = array(
-                    "Tipo" => 'success', 
+                    "tipo" => 'success', 
                     "mensagem" => 'Registro atualizado com sucesso!' 
                 ); 
             } catch(PDOException $e) {
                 $dados = array(
-                    "Tipo" => 'error', 
+                    "tipo" => 'error', 
                     "mensagem" => 'Não foi passível atualizar o registro:'.$e 
                 );
             }
@@ -57,4 +57,4 @@
     }
 
 //Converter o nosso array de retorno em uma representação JSON
-echo json_decode($dados);
+echo json_encode($dados);

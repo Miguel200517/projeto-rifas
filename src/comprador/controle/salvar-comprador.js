@@ -4,7 +4,7 @@ $(document).ready(function(){
 
     let dados = $('#form-comprador').serialize()
 
-    dados += `&operacao&=${$('.btn-salvar').attr('data-operation')}`
+    dados += `&operacao=${$('.btn-salvar').attr('data-operation')}`
 
     $.ajax({
         type: 'POST',
