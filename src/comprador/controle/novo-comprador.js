@@ -10,7 +10,7 @@ $(document).ready(function(){
        $('.modal-title').append('Adicionar novo registro')
 
        //Incluir o nosso formulario dentro da nossa janela modal
-       $('.modal-body').load('src/tipo/visao/form-tipo.html')
+       $('.modal-body').load('src/comprador/visao/form-comprador.html')
 
        //Iremos incluir uma função no botão salvar para demonstrar que é um novo registro
        $('.btn-salvar').attr('data-operation', 'insert')

@@ -1,17 +1,16 @@
 <?php
 
-// carregar as credenciais do banco de dados 
-$hostname = "sql209.epizy.com";
-$database= "epiz_31448439_sysrifas";
-$user= "epiz_31448439";
-$passaword= "ZCXbZ4iT5tq9";
+//Carregar as credenciais do banco de bados 
+$hostname = "sql109.epizy.com";
+$database = "epiz_31629778_sysrifa";
+$user = "epiz_31629778";
+$passaword = "k1xhKt3Yuyy9hI";
 
 try{
-$pdo = new PDO('mysql:host='.'$hostname.';dbname='$database, $user, $password);
-$pdo->setAttribute(PDO:: ATRR_ERRMODE,PDO::  ERRMODE_EXCEPTION);
-echo 'conexão com o banco de dados'.$database.', foi realizado com sucesso!';
-    
-} catch(PDOException $e) {
-    echo 'erro:' .$e->getMessage();
+    $pdo = new PDO('mysql:host='.$hostname.';dbname='.$database, $user, $passaword);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //echo 'Conexão com banco de dados '.$database.', foi realizado com sucesso!';
 
+} catch(PDOException $e){
+    echo 'Erro: '.$e->getMessage();
 }
