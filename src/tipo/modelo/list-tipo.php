@@ -44,4 +44,7 @@ $dados = array();
 while($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
     $dados[] = array_map('utf8_encode',$row);
 
+
 }
+
+/
