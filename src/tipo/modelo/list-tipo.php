@@ -47,4 +47,12 @@ while($row = $resultado->fetch(PDO::FETCH_ASSOC)) {
 
 }
 
-/
+// criar o nosso objeto JSON no padrão DataTables
+$json_data = arry(
+   "draw" => intval($requestData['draw']),
+   "recordsTotal" => intval($qtdeLinhas),
+   "recordsFiltered"=> intval($totalFiltrados),
+   "data" => $dados
+);
+
+echo json_decode($json_data)

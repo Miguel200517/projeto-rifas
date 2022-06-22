@@ -21,6 +21,7 @@ $(document).ready(function(){
             })
 
             $('#modal-tipo').modal('hide')
+            $('#table-tipo').Datatable().ajax.reload()
     }
 })
 })
