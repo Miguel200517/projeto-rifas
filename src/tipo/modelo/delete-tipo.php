@@ -1,24 +1,23 @@
 <?php
-incluide('../../conexao.php');
+
+//Incluindo nossa conexão com o banco de dados 
+include('../../conexao/conn.php');
 
 $ID = $_REQUEST['ID'];
 
-$sql = "DELETE * FROM  TIPO WHERE ID = $ID";
+$sql = "DELETE FROM TIPO WHERE ID = $ID";
 
 $resultado = $pdo->query($sql);
 
 if($resultado){
-    $dados = arry(
-        'tipo'=> 'success',
-        'mensagem'=> 'registro excluido com sucesso.'
-
-
-
-);
+    $dados = array(
+        'tipo' => 'success',
+        'mensagem' => ' Registro excluido com sucesso!'
+    );
 }else{
-    $dados = arry(
-        'tipo'=> 'error',
-        'mensagem'=> 'Não foi possivel excluir o registro selecionado.'
+    $dados = array(
+        'tipo' => 'error',
+        'mensagem' => 'Não foi possivel excluir o registro selecionado'
     );
 }
-echo json_encode($dados);
+echo json_encode ($dados);

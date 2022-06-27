@@ -9,7 +9,7 @@
     if(empty($requestData['NOME'])){
         //Caso a variavel venha vazia do formulario, iremos retornar um erro
         $dados = array(
-            "tipo" => 'error', 
+            "Tipo" => 'error', 
             "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
         );
     }else {
@@ -26,7 +26,7 @@
                     ':a' => utf8_decode($requestData['NOME'])
                 ));
                 $dados = array(
-                    "tipo" => 'success', 
+                    "tipo" => 'sucess', 
                     "mensagem" => 'Registro salvo com sucesso!' 
                 ); 
             } catch(PDOException $e) {
